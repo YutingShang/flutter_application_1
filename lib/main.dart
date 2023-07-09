@@ -44,8 +44,9 @@ class MyAppState extends ChangeNotifier {
   void loadFavorites() {
     //favorites = stringListToWordPairs(
     //(box.get('FavoritesList')?.cast<List<List<String>>>() ?? []));
+
     List<List<String>> stringList =
-        box.get('FavoritesList').cast<List<String>>();
+        box.get('FavoritesList')?.cast<List<String>>() ?? [];
     favorites = stringListToWordPairs(stringList);
     print(stringList);
     print('BOBs ur uncle');
