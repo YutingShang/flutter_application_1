@@ -42,14 +42,9 @@ class MyAppState extends ChangeNotifier {
   var box = Hive.box('myFavBox');
 
   void loadFavorites() {
-    //favorites = stringListToWordPairs(
-    //(box.get('FavoritesList')?.cast<List<List<String>>>() ?? []));
-
     List<List<String>> stringList =
         box.get('FavoritesList')?.cast<List<String>>() ?? [];
     favorites = stringListToWordPairs(stringList);
-    print(stringList);
-    print('BOBs ur uncle');
     print(favorites);
   }
 
@@ -60,10 +55,6 @@ class MyAppState extends ChangeNotifier {
       favorites.add(current);
     }
     box.put('FavoritesList', wordPairsToStringList(favorites));
-    // print('MAMA MIA');
-    // print(favorites);
-    // print(wordPairsToStringList(favorites));
-    // print(stringListToWordPairs(wordPairsToStringList(favorites)));
     notifyListeners();
   }
 
@@ -97,30 +88,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final appState = Provider.of<MyAppState>(context, listen: false);
-  //   appState.loadFavorites();
-  //   print("Hellooo");
-  // }
-
-  // final box = Hive.box('myFavBox');
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _refreshItems();
-  // }
-
-  // void _refreshItems() {
-  //   final appState = Provider.of<MyAppState>(context, listen: false);
-  //   setState(() {
-  //     var fav = box.get('myFavBox').cast<WordPair>();
-  //     print("OMGOMGOMG");
-  //     print(fav);
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
