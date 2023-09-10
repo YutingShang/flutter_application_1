@@ -2,6 +2,8 @@
 
 Followed the Google Codelab tutorial to create a random word-pair generating application
 
+Favourited word-pairs are stored in local storage using a Hive database
+
 
 ## Getting Started
 
